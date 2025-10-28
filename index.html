@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шифр Ель-Гамаля на еліптичній кривій</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="title-wrap">
+      <h1>Шифр Ель-Гамаля (Еліптична крива)</h1>
+      <p class="subtitle"></p>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <div class="panel-grid">
+      <!-- Панель шифрування -->
+      <div class="panel">
+        <h2>🔐 Шифрування</h2>
+        <div class="form">
+          <label>Модуль поля p
+            <input id="p" type="number" placeholder="751">
+          </label>
+
+          <label>Коефіцієнт a
+            <input id="a" type="number" placeholder="-1">
+          </label>
+
+          <label>Коефіцієнт b
+            <input id="b" type="number" placeholder="188">
+          </label>
+
+          <label>Точка Gx
+            <input id="gx" type="number" placeholder="0">
+          </label>
+
+          <label>Точка Gy
+            <input id="gy" type="number" placeholder="376">
+          </label>
+
+          <label>Порядок точки q
+            <input id="q" type="number" placeholder="727">
+          </label>
+
+          <label>Закритий ключ отримувача (kB)
+            <input id="kb" type="number" placeholder="0 < kB < q">
+          </label>
+
+          <label>Відкритий ключ отримувача (YB)
+            <input id="yb" type="text" placeholder="автоматично обчислиться" readonly>
+          </label>
+
+          <label>Повідомлення (M)
+            <input id="m" type="number" placeholder="123">
+          </label>
+
+          <label>Випадкове число (r)
+            <input id="r" type="number" placeholder="згенерується або введи сам">
+          </label>
+        </div>
+
+        <div class="controls">
+          <button onclick="generateRandom()">🔢 Згенерувати випадкові</button>
+          <button onclick="generatePublicKey()">🔐 Обчислити YB</button>
+          <button onclick="encrypt()">📦 Зашифрувати</button>
+        </div>
+
+        <div id="output" class="output">
+          <p>Результат шифрування зʼявиться тут...</p>
+        </div>
+      </div>
+
+      <!-- Панель розшифрування -->
+      <div class="panel">
+        <h2>🔓 Розшифрування</h2>
+        <div class="form">
+          <label>Закритий ключ kB
+            <input id="kbDec" type="number" placeholder="секретний ключ отримувача">
+          </label>
+          <label>Модуль p
+            <input id="pDec" type="number" placeholder="має бути таким самим">
+          </label>
+          <label>Rx
+            <input id="rxDec" type="number" placeholder="із шифротексту R">
+          </label>
+          <label>Ry
+            <input id="ryDec" type="number" placeholder="із шифротексту R">
+          </label>
+          <label>C
+            <input id="cDec" type="number" placeholder="значення C">
+          </label>
+        </div>
+
+        <div class="controls">
+          <button onclick="decrypt()">🧩 Розшифрувати</button>
+        </div>
+
+        <div id="outputDec" class="output">
+          <p>Розшифрований текст зʼявиться тут...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="author-card">
+  <img src="/img/avatar.jpg" alt="Author photo">
+  <p>Автор: <strong>jrxnrs</strong></p>
+</div>
+  <div class="footer">
+    © 2025 Ель-Гамаль на Еліптичних Кривих — створено jrxnrs💻
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
